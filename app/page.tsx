@@ -16,9 +16,9 @@ export default function Home() {
       <section>
         <Hero />
       </section>
-      <section>
+      {/* <section>
         <Animate />
-      </section>
+      </section> */}
    </div>
   );
 }

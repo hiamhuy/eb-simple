@@ -5,9 +5,10 @@ import * as THREE from 'three';
 const Hero = () => {
     return (
         <div className="relative h-full w-full">
-            <video autoPlay muted loop className="object-cover w-full h-full">
+            Hello guys
+            {/* <video autoPlay muted loop className="object-cover w-full h-full">
                 <source src='/background/cards-video.webm' type='video/webm'/>
-            </video>
+            </video> */}
         </div>
     )
 }
