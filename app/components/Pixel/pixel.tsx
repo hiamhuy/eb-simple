@@ -5,9 +5,7 @@ import style from '../Pixel/pixel.module.css'
 const Pixel = () => {
     const pixelRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
-        return (() => {
-            pixel()
-        })
+        pixel()
     },[])
     const pixel = () => {
         let w = 30
