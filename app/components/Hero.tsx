@@ -5,7 +5,7 @@ import * as THREE from 'three';
 const Hero = () => {
     return (
         <div className="relative h-full w-full">
-            <video autoPlay muted loop className="absolute opacity-[0.4] z-[-1] object-cover w-full h-full">
+            <video autoPlay muted playsInline loop className="absolute opacity-[0.4] z-[-1] object-cover w-full h-full">
                 <source src='/background/cards-video.webm' type='video/webm'/>
             </video>
 
