@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Hero from "./components/Hero";
 import Animate from "./components/Animate";
+import Bubbles from "./components/Bubbles/Bubbles";
 
 export default function Home() {
   const container:React.CSSProperties = {
@@ -13,12 +14,13 @@ export default function Home() {
   }
   return (
    <div style={container}>
+      <Bubbles />
       <section>
         <Hero />
       </section>
-      {/* <section>
+      <section>
         <Animate />
-      </section> */}
+      </section>
    </div>
   );
 }
