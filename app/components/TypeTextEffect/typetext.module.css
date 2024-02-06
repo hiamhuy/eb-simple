@@ -1,0 +1,55 @@
+
+.container ul{
+    display: flex;
+    flex-direction: column;
+    height: 48px;
+    overflow: hidden;
+}
+
+.container li{
+    position: relative;
+    color: #0ef;
+    top: 0;
+    list-style: none;
+    padding: 0 10px;
+    font-size: 32px;
+    font-weight: 600;
+    animation: slide var(--time-slide) steps(var(--count-text)) infinite, colorful 6s infinite;
+}
+
+@keyframes slide {
+    100%{
+        top: calc(var(--count-text)*-48px);
+    }
+}
+
+@keyframes colorful {
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.container li span{
+    position: relative;
+    text-align: center;
+}
+
+.container li span:before{
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    border-left: 2px solid #3d3d3d;
+    pointer-events: none;
+    animation: texttype 4s steps(var(--length-text)) infinite alternate;
+}
+
+@keyframes texttype{
+    100% {
+        left: 100%;
+        margin: 0 -5px 0 35px;
+    }
+}
