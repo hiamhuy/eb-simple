@@ -40,7 +40,7 @@ export default function Home() {
   }
   return (
    <div style={container}>
-      <Bubbles />
+      {/* <Bubbles /> */}
       <section>
         <Hero />
       </section>
