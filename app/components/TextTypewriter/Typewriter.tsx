@@ -10,7 +10,8 @@ const Typewriter = ({text} : TypewriterProps) => {
     const [isTimeRemove, setTimeRemove] = useState(false)
     const [isTron, setTron] = useState(false)
     const [timeCount, setTimeCount] = useState(9)
-    const writeText = (element:any, textInput:string, i=0) => {
+
+    const writeText = (element:any, textInput:string, i = 0) => {
         if(element.current){
             if(i === 0){
                 element.current.textContent = null
@@ -49,7 +50,7 @@ const Typewriter = ({text} : TypewriterProps) => {
         if(timeCount === 0){
             setTron(true)
         }
-    },[timeCount, isTimeRemove])
+    },[])
 
     return (
         <div className="px-[3rem] flex flex-col justify-center items-center gap-2">
