@@ -54,7 +54,7 @@ const Typewriter = ({text} : TypewriterProps) => {
 
     return (
         <div className="px-[3rem] flex flex-col justify-center items-center gap-2">
-                    <p ref={pRef} className="text-wrap text-[28px]"></p>
+                <p ref={pRef} className="text-wrap text-[28px]">{text}</p>
                 {
                 isShow && (
                     <div className="flex flex-col gap-2">
