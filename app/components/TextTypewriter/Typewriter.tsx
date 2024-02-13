@@ -12,23 +12,24 @@ const Typewriter = ({text} : TypewriterProps) => {
     const [timeCount, setTimeCount] = useState(9)
 
     const writeText = (element:any, textInput:string, i = 0) => {
-        if(element.current){
+        if(element){
             if(i === 0){
-                element.current.textContent = null
+                element.textContent = null
             }
-            element.current.textContent += textInput[i]
+            element.textContent += textInput[i]
     
            if(i === textInput.length - 1){
                setShow(true)
                 return
            }
-           setTimeout( () => { writeText(pRef, textInput, i+1) }, 80)
+           setTimeout( () => { writeText(element, textInput, i+1) }, 80)
         } 
     }
     useEffect(() => {
         setTron(false)
+        const doct = document.querySelector('#text')
         return (() => {
-            writeText(pRef, text)
+            writeText(doct, text)
         })
     }, [])
 
@@ -54,7 +55,7 @@ const Typewriter = ({text} : TypewriterProps) => {
 
     return (
         <div className="px-[3rem] flex flex-col justify-center items-center gap-2">
-                <p ref={pRef} className="text-wrap text-[28px]">{text}</p>
+                <p id="text" ref={pRef} className="text-wrap text-[28px]"></p>
                 {
                 isShow && (
                     <div className="flex flex-col gap-2">
