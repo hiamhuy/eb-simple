@@ -29,7 +29,7 @@ const Typewriter = ({text} : TypewriterProps) => {
         setTron(false)
         const doct = document.querySelector('')
         return (() => {
-            writeText(pRef, text)
+            // writeText(pRef, text)
         })
     }, [])
 
@@ -51,7 +51,7 @@ const Typewriter = ({text} : TypewriterProps) => {
         if(timeCount === 0){
             setTron(true)
         }
-    },[])
+    },[isTimeRemove, timeCount])
 
     return (
         <div className="px-[3rem] flex flex-col justify-center items-center gap-2">
