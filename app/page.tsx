@@ -42,7 +42,8 @@ export default function Home() {
    <div style={container}>
       {/* <Bubbles /> */}
       <section>
-        <Hero />
+        {Date.now()}
+        {/* <Hero /> */}
       </section>
       {/* <section>
         <Animate />
