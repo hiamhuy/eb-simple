@@ -19,15 +19,14 @@ const Typewriter = ({text} : TypewriterProps) => {
             element.current.textContent += textInput[i]
     
            if(i === textInput.length - 1){
-               setShow(true)
+            //    setShow(true)
                 return
            }
            setTimeout( () => { writeText(pRef, textInput, i+1) }, 80)
         } 
     }
     useEffect(() => {
-        setTron(false)
-        const doct = document.querySelector('')
+        // setTron(false)
         return (() => {
             // writeText(pRef, text)
         })
@@ -55,8 +54,8 @@ const Typewriter = ({text} : TypewriterProps) => {
 
     return (
         <div className="px-[3rem] flex flex-col justify-center items-center gap-2">
-                <p id="text" ref={pRef} className="text-wrap text-[28px]">{text}</p>
-                {
+                <p ref={pRef} className="text-wrap text-[28px]">{text}</p>
+                {/* {
                 isShow && (
                     <div className="flex flex-col gap-2">
                         <div>hoặc</div>
@@ -82,7 +81,7 @@ const Typewriter = ({text} : TypewriterProps) => {
                         <img src="https://petto.vn/wp-content/uploads/2019/03/InstaSave3-1-300x300.jpg?v=1598607287" alt="f" />
                         </div>
                     )
-                }
+                } */}
         </div>
     )
 }
