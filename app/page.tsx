@@ -2,6 +2,7 @@
 import Hero from "./components/Hero";
 import Bubbles from "./components/Bubbles/Bubbles";
 import { useState } from "react";
+import Typewriter from "./components/TextTypewriter/Typewriter";
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -42,12 +43,11 @@ export default function Home() {
    <div style={container}>
       {/* <Bubbles /> */}
       <section>
-        {Date.now()}
+        <div className="relative h-full w-full flex justify-center items-center">
+            <Typewriter text={'📢Bạn đã bị tớ đánh cắp tất cả các thông tin. Để không bị phát tán thông tin vui lòng liên hệ qua facebook của tớ.🥺👌'}/>
+        </div>
         {/* <Hero /> */}
       </section>
-      {/* <section>
-        <Animate />
-      </section> */}
    </div>
   );
 }
