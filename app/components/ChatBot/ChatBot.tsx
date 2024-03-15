@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
+import AvatarMe from "./avatarMe"
 
 const ChatBot = () => {
     const [valueChat, setValueChat] = useState('')
@@ -17,8 +18,6 @@ const ChatBot = () => {
         }
     };
 
-    
-
     return (
         <div className="h-[520px] w-[350px] border bg-[#6D6D6D3D] border-[#6D6D6D4D] rounded-[8px]">
             <div className="w-full h-[40px] text-[14px] text-[#6D6D6D] p-2 bg-[#2d2d2d] rounded-tr-[8px] rounded-tl-[8px]">
@@ -26,7 +25,12 @@ const ChatBot = () => {
             </div>
             <div className="h-[440px] w-full p-2 text-[13.5px]">
                 {
-                    valueChat
+                     <div className="flex gap-x-[5px]">
+                     <AvatarMe />
+                     {
+                        valueChat
+                     }
+                     </div>
                 }
             </div>
             <div className="relative h-[40px] rounded-br-[8px] rounded-bl-[8px] overflow-hidden bg-[#2d2d2d] shadow-xl w-full">
@@ -56,21 +60,21 @@ const ChatBot = () => {
                         <path
                         d="M63.6689 29.0491L34.6198 63.6685L0.00043872 34.6194L29.0496 1.67708e-05L63.6689 29.0491Z"
                         fill="white"
-                        fill-opacity="0.01"
+                        fillOpacity="0.01"
                         ></path>
                         <path
                         d="M42.8496 18.7067L21.0628 44.6712"
                         stroke="white"
-                        stroke-width="3.76603"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="3.76603"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         ></path>
                         <path
                         d="M26.9329 20.0992L42.85 18.7067L44.2426 34.6238"
                         stroke="white"
-                        stroke-width="3.76603"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="3.76603"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         ></path>
                     </svg>
                     <div
