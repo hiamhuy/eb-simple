@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Bubbles from "./components/Bubbles/Bubbles";
 import { useState } from "react";
 import Typewriter from "./components/TextTypewriter/Typewriter";
+import ChatBot from "./components/ChatBot/ChatBot";
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -44,7 +45,7 @@ export default function Home() {
       {/* <Bubbles /> */}
       <section>
         <div className="relative h-full w-full flex justify-center items-center">
-            <Typewriter text={'📢Bạn đã bị đánh cắp thông tin. Để không bị phát tán thông tin vui lòng liên hệ qua facebook của tớ.🥺👌'}/>
+          <ChatBot />
         </div>
         {/* <Hero /> */}
       </section>
