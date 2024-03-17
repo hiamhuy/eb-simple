@@ -46,20 +46,12 @@ const ChatBot = () => {
         handleBotResponse();
     },[arrayBox])
 
-    const findBotResponse = (userMessage:string) => {
-        const responses = {
-            'Bạn tên là gì?': 'Mình là Bot.',
-            'Bạn làm gì?': 'Mình là một chương trình trả lời tự động.',
-        };
-        
-    };
-
     useEffect(() => {
         setTimeout(() => {
             const bot:BoxChat = {
                 id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
                 sender:'bot',
-                text: 'Hi, Tôi là trợ lí ảo của Huy, hãy đưa tôi một câu hỏi tôi sẽ trả lại bằng một câu trả lời về câu hỏi của bạn.'
+                text: 'Hi, Tôi là trợ lý ảo của Huy, hãy đưa tôi một câu hỏi tôi sẽ trả lại bằng một câu trả lời về câu hỏi của bạn.'
             }
             setArrayBox([...arrayBox, bot])
         },500)
