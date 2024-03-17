@@ -3,7 +3,7 @@ import AvatarMe from "./avatarMe"
 
 type BoxChat = {
     id:number,
-    type:string,
+    sender:string,
     text:string
 }
 
@@ -12,27 +12,55 @@ const ChatBot = () => {
     const [valueInput, setValueInput] = useState('')
     const [arrayBox, setArrayBox] = useState<BoxChat[]>([])
     const refInput = useRef<HTMLInputElement>(null)
+    const refDiv = useRef<HTMLDivElement>(null)
 
     const sendChat = () => {
-        setValueChat(refInput?.current?.value??'')
-        const _peo:BoxChat = {
-            id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
-            type:'people',
-            text: refInput?.current?.value??''
+        if(refInput?.current?.value){
+            const _input = refInput?.current?.value.trim()
+            setValueChat(_input)
+            const _peo:BoxChat = {
+                id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
+                sender:'people',
+                text: _input
+            }
+            setArrayBox([...arrayBox, _peo])
+            setValueInput('')
         }
-        setArrayBox([...arrayBox, _peo])
-        setValueInput('')
     }
 
-    // useEffect(() => {
-    //     console.log({arrayBox})
-    // },[arrayBox])
+    useEffect(() => {
+        const handleBotResponse = () => {
+            if(arrayBox && arrayBox.length > 0){
+                const lastMessage = arrayBox[arrayBox.length - 1];
+                if (lastMessage.sender === 'people') {
+                    const newMessage:BoxChat = {
+                        id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
+                        sender: 'bot',
+                        text: "Xin lỗi, tôi đang cố gắng tìm câu trả lời từ Mr.Huy"
+                    };
+                    setTimeout(() => {
+                        setArrayBox([...arrayBox, newMessage]);
+                    },1000)
+                }
+            }
+        };
+
+        handleBotResponse();
+    },[arrayBox])
+
+    const findBotResponse = (userMessage:string) => {
+        const responses = {
+            'Bạn tên là gì?': 'Mình là Bot.',
+            'Bạn làm gì?': 'Mình là một chương trình trả lời tự động.',
+        };
+        
+    };
 
     useEffect(() => {
         setTimeout(() => {
             const bot:BoxChat = {
                 id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
-                type:'bot',
+                sender:'bot',
                 text: 'Hi, Tôi là trợ lí ảo của Huy, hãy đưa tôi một câu hỏi tôi sẽ trả lại bằng một câu trả lời về câu hỏi của bạn.'
             }
             setArrayBox([...arrayBox, bot])
@@ -41,29 +69,39 @@ const ChatBot = () => {
 
     const handleKeyPress = (e:any) => {
         if (e.key === 'Enter') {
-            setValueChat(refInput?.current?.value??'')
-            const _peo:BoxChat = {
-                id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
-                type:'people',
-                text: refInput?.current?.value??''
+            if(refInput?.current?.value){
+                const _input = refInput?.current?.value.trim()
+                setValueChat(_input)
+                const _peo:BoxChat = {
+                    id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
+                    sender:'people',
+                    text: _input
+                }
+                setArrayBox([...arrayBox, _peo])
+                setValueInput('')
             }
-            setArrayBox([...arrayBox, _peo])
-            setValueInput('')
+           
         }
     };
+
+    useEffect(() => {
+        if (refDiv.current) {
+            refDiv.current.scrollTop = refDiv.current.scrollHeight;
+        }
+    }, [arrayBox]);
 
     return (
         <div className="h-[calc(100vh-30px)] w-[calc(100vw-10px)] relative md:w-[calc(100vw-100px)] border bg-[#6D6D6D3D] border-[#6D6D6D4D] rounded-[8px]">
             <div className="w-full h-[40px] text-[14px] text-[#6D6D6D] p-2 bg-[#2d2d2d] rounded-tr-[8px] rounded-tl-[8px]">
                 Chat cùng BOT của Huy nè... ^^
             </div>
-            <div className="max-h-[calc(100vh-120px)] overflow-x-hidden overflow-y-auto w-full p-2 text-[14px]">
+            <div ref={refDiv} className="max-h-[calc(100vh-120px)] overflow-x-hidden overflow-y-auto w-full p-2 text-[14px]">
                 {
                     arrayBox && arrayBox.map((item, idx) => (
                         <div key={idx} className="w-full h-full">
                             {
-                                item.type === 'bot' && (
-                                    <div key={Math.random()} className="flex justify-start w-full my-[10px] rounded-[10px]">
+                                item.sender === 'bot' && (
+                                    <div key={Math.random()} className="flex justify-start w-full my-[8px] rounded-[7px]">
                                         <div className="w-fit break-all h-full bg-gray-950 px-3 py-3 rounded-[10px] max-w-[90%] md:max-w-[650px] lg:max-w-[980px] xl:max-w-[50%]">
                                         {
                                             item.text
@@ -73,8 +111,8 @@ const ChatBot = () => {
                                 )
                             }
                             {
-                                item.type === 'people' && (
-                                    <div key={Math.random()} className="flex justify-end w-full my-[10px] rounded-[10px]">
+                                item.sender === 'people' && (
+                                    <div key={Math.random()} className="flex justify-end w-full my-[8px] rounded-[10px]">
                                        <div className="w-fit break-all h-full bg-blue-700 px-3 py-3 rounded-[10px] max-w-[90%] md:max-w-[650px] lg:max-w-[980px] xl:max-w-[50%]">
                                         {
                                             item.text
