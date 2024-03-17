@@ -8,7 +8,6 @@ type BoxChat = {
 }
 
 const ChatBot = () => {
-    const [valueChat, setValueChat] = useState('')
     const [valueInput, setValueInput] = useState('')
     const [arrayBox, setArrayBox] = useState<BoxChat[]>([])
     const refInput = useRef<HTMLInputElement>(null)
@@ -17,7 +16,6 @@ const ChatBot = () => {
     const sendChat = () => {
         if(refInput?.current?.value){
             const _input = refInput?.current?.value.trim()
-            setValueChat(_input)
             const _peo:BoxChat = {
                 id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
                 sender:'people',
@@ -36,7 +34,7 @@ const ChatBot = () => {
                     const newMessage:BoxChat = {
                         id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
                         sender: 'bot',
-                        text: "Xin lỗi, tôi đang cố gắng tìm câu trả lời từ Mr.Huy"
+                        text: "Xin lỗi, bạn hãy nói Huy trả lương cho tôi, tôi sẽ trả lời."
                     };
                     setTimeout(() => {
                         setArrayBox([...arrayBox, newMessage]);
@@ -71,7 +69,6 @@ const ChatBot = () => {
         if (e.key === 'Enter') {
             if(refInput?.current?.value){
                 const _input = refInput?.current?.value.trim()
-                setValueChat(_input)
                 const _peo:BoxChat = {
                     id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1,
                     sender:'people',
@@ -102,10 +99,12 @@ const ChatBot = () => {
                             {
                                 item.sender === 'bot' && (
                                     <div key={Math.random()} className="flex justify-start w-full my-[8px] rounded-[7px]">
-                                        <div className="w-fit break-all h-full bg-gray-950 px-3 py-3 rounded-[10px] max-w-[90%] md:max-w-[650px] lg:max-w-[980px] xl:max-w-[50%]">
-                                        {
-                                            item.text
-                                        }
+                                        <div className="w-fit h-full bg-gray-950 p-3 rounded-[10px] max-w-[90%] md:max-w-[650px] lg:max-w-[980px] xl:max-w-[50%]">
+                                            <span className="text-wrap">
+                                            {
+                                                item.text
+                                            }
+                                            </span>
                                         </div>
                                     </div>
                                 )
@@ -113,11 +112,13 @@ const ChatBot = () => {
                             {
                                 item.sender === 'people' && (
                                     <div key={Math.random()} className="flex justify-end w-full my-[8px] rounded-[10px]">
-                                       <div className="w-fit break-all h-full bg-blue-700 px-3 py-3 rounded-[10px] max-w-[90%] md:max-w-[650px] lg:max-w-[980px] xl:max-w-[50%]">
-                                        {
-                                            item.text
-                                        }
-                                       </div>
+                                        <div className="w-fit h-full bg-blue-700 p-3 rounded-[10px] max-w-[90%] md:max-w-[650px] lg:max-w-[980px] xl:max-w-[50%]">
+                                            <span className="text-wrap">
+                                            {
+                                                item.text
+                                            }
+                                            </span>
+                                        </div>
                                     </div>
                                 )
                             }
