@@ -5,7 +5,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Hwee hoo-ee"
+  title: "Hwee hoo-ee",
+  viewport: {
+    width:'device-width',
+    initialScale: 1,
+    userScalable: false
+  }
 };
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode;}>) {
