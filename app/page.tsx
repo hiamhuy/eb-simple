@@ -41,13 +41,11 @@ export default function Home() {
 
   }
   return (
-   <div style={container}>
-      {/* <Bubbles /> */}
+   <div className="overflow-hidden">
       <section>
         <div className="relative h-full w-full flex justify-center items-center">
           <ChatBot />
         </div>
-        {/* <Hero /> */}
       </section>
    </div>
   );
