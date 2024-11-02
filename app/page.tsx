@@ -1,9 +1,6 @@
 'use client'
-import Hero from "./components/Hero";
-import Bubbles from "./components/Bubbles/Bubbles";
 import { useState } from "react";
-import Typewriter from "./components/TextTypewriter/Typewriter";
-import ChatBot from "./components/ChatBot/ChatBot";
+import Flippingbook from "./components/Flippingbook/flippingbook";
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -42,9 +39,9 @@ export default function Home() {
   }
   return (
    <div className="overflow-hidden">
-      <section>
+      <section className="w-[100vw] h-[100vh]">
         <div className="relative h-full w-full flex justify-center items-center">
-          <ChatBot />
+          <Flippingbook />
         </div>
       </section>
    </div>

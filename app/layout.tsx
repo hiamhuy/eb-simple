@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Trợ lý ảo của Huy",
+  title: "Chăm sóc sức khỏe",
 };
 
 export const viewport: Viewport = {
@@ -21,7 +21,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
     <html lang="en">
       <body className={inter.className}>
         {children}
-        </body>
+      </body>
     </html>
   );
 }
