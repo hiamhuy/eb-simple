@@ -1,5 +1,4 @@
 'use client'
-import { useRef } from 'react'
 import style from '../TypeTextEffect/typetext.module.css'
 interface TypeTextEffectProps{
     Text:string[]

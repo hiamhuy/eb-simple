@@ -1,6 +1,8 @@
 'use client'
 import { useState } from "react";
-import Flippingbook from "./components/Flippingbook/flippingbook";
+import Pixel from "./components/Pixel/pixel";
+import TypeTextEffect from "./components/TypeTextEffect/TypeTextEffect";
+import Bubbles from "./components/Bubbles/Bubbles";
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -41,7 +43,8 @@ export default function Home() {
    <div className="overflow-hidden">
       <section className="w-[100vw] h-[100vh]">
         <div className="relative h-full w-full flex justify-center items-center">
-          <Flippingbook />
+          <TypeTextEffect Text={['Hàng vạn lời yêu không bằng một chiều anh đưa em đi uống bia.']}/>
+          <Bubbles />
         </div>
       </section>
    </div>
